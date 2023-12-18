@@ -4,7 +4,7 @@ set -e
 set -u
 set -x
 
-export AWS_PROFILE=YOUR_PROFILE_NAME
+export AWS_PROFILE=YOUR_AWS_PROFILE_NAME
 
 aws ecr get-login-password --region YOUR_REGION_NAME | \
     docker login --username AWS --password-stdin YOUR_ACCOUNT_ID.dkr.ecr.YOUR_REGION_NAME.amazonaws.com

@@ -1,0 +1,38 @@
+version: '3.3'
+services:  
+  postgres:
+    platform: 'linux/amd64'
+    image: postgres:latest
+    container_name: codewithmuh-backend-postgres-local
+    environment:
+      - POSTGRES_USER=postgres3
+      - POSTGRES_PASSWORD=postgres3
+      - POSTGRES_DB=postgres3
+    ports:
+      - '5437:5432'
+    volumes:
+      - codewithmuh-backend-postgres-local:/var/lib/postgresql/data/
+
+  backend:
+    platform: 'linux/amd64'
+    image: codewithmuh-backend-django:local
+    container_name: codewithmuh-backend-django-local
+    build:
+      context: ../../
+      dockerfile: ./build-process/codewithmuh-backend/docker-backend-django/Dockerfile
+      args:
+        Production: 'False'
+    volumes:
+      - ../../:/home/codewithmuh-backend
+    ports:
+      - '8090:8090'
+    env_file:
+      - ./local.codewithmuh-backend.env
+    command: python manage.py runserver 0.0.0.0:8090
+    depends_on:
+      - postgres
+
+volumes:
+  codewithmuh-backend-postgres-local:
+  esdata:
+
