@@ -15,7 +15,7 @@
 1. Local Setup
 2. Deploy on AWS ECS Fargate
 
-### Quick Local Setup
+###1.  Quick Local Setup
 
 1. Make sure you Docker desktop or docker daemon is running . 
 you can install docker from office website.
@@ -27,7 +27,7 @@ you can install docker from office website.
 
   ```
 ----
-### Deploy on AWS ECS Fargate
+### 2.  Deploy on AWS ECS Fargate
 
 #### Step 1: Configure AWS CLI with a Profile Name
 
@@ -56,7 +56,7 @@ Default Region: Specify the default AWS Region you want to use for this profile.
  Replace YOUR_AWS_PROFILE_NAME, YOUR_REGION_NAME, YOUR_ACCOUNT_ID, YOUR_ECR_REPO_NAME, YOUR_CLUSTER_NAME, YOUR_SERVICE_NAME
 
 
- 2. Then Run this command, it will build eocker image, and push image to ecr, It will also update ecs service
+2. Then Run this command, it will build eocker image, and push image to ecr, It will also update ecs service
 
 ----
 
