@@ -15,12 +15,12 @@
 1. Local Setup
 2. Deploy on AWS ECS Fargate
 
-###1.  Quick Local Setup
+### 1.  Quick Local Setup
 
 1. Make sure you Docker desktop or docker daemon is running . 
 you can install docker from office website.
 
-2. 
+2.  Run this command to start project running locally.
 ----
   ```sh
   docker compose -f "build-process/aws-ecs-fargate/docker-compose-django-backend.yml" up -d --build
