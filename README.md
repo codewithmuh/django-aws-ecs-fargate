@@ -23,7 +23,7 @@ you can install docker from office website.
 2.  Run this command to start project running locally.
 ----
   ```sh
-  docker compose -f "build-process/docker-compose-django-backend.yml" up -d --build
+  docker compose -f "./build-process/codewithmuh-backend/docker-compose-django-backend.yml" up -d --build
 
   ```
 ----

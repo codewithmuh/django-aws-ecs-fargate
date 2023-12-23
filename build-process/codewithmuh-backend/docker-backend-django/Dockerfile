@@ -1,7 +1,7 @@
 FROM python:3.12-slim
 
 ENV PYTHONUNBUFFERED 1
-ENV DJANGO_SETTINGS_MODULE=settings
+ENV DJANGO_SETTINGS_MODULE=backend.settings
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
@@ -13,19 +13,19 @@ RUN apt-get update && \
         supervisor && \
     rm -rf /var/lib/apt/lists/*
 
-COPY ./requirements.txt /home/codewithmuh-backend
+COPY ./requirements /home/codewithmuh-backend/requirements
 RUN mkdir -p /home/codewithmuh-backend/media
 WORKDIR /home/codewithmuh-backend
 
 
 RUN pip install --upgrade pip
-RUN pip install -r ./requirements.txt
+RUN pip install -r ./requirements/requirements.txt
 
 
 
-EXPOSE 8090
+EXPOSE 8080
 
-RUN mkdir -p /var/logs/backend
+RUN mkdir -p /var/logs/codewithmuh
 
 
 COPY ./build-process/codewithmuh-backend/docker-backend-django/scripts /home/docker/scripts
@@ -35,8 +35,7 @@ RUN sed -i 's/\r$//' /home/docker/scripts/boot.sh  && \
         chmod +x /home/docker/scripts/boot.sh
 
 ENTRYPOINT /home/docker/scripts/boot.sh
-COPY . /home/codewithmuh-backend 
 
+COPY ./ /home/codewithmuh-backend
 
-# RUN chmod +x run_scripts.sh
 

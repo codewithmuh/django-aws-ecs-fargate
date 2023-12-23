@@ -21,14 +21,13 @@ services:
       context: ../../
       dockerfile: ./build-process/codewithmuh-backend/docker-backend-django/Dockerfile
       args:
-        Production: 'False'
+        APP_ENVIRONMENT: 'Local'
     volumes:
       - ../../:/home/codewithmuh-backend
     ports:
-      - '8090:8090'
+      - '8080:8080'
     env_file:
       - ./local.codewithmuh-backend.env
-    command: python manage.py runserver 0.0.0.0:8090
     depends_on:
       - postgres
 
