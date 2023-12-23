@@ -5,9 +5,9 @@ services:
     image: postgres:latest
     container_name: codewithmuh-backend-postgres-local
     environment:
-      - POSTGRES_USER=postgres3
-      - POSTGRES_PASSWORD=postgres3
-      - POSTGRES_DB=postgres3
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
     ports:
       - '5437:5432'
     volumes:

@@ -35,6 +35,8 @@ RUN sed -i 's/\r$//' /home/docker/scripts/boot.sh  && \
         chmod +x /home/docker/scripts/boot.sh
 
 ENTRYPOINT /home/docker/scripts/boot.sh
-COPY . /home/ 
+COPY . /home/codewithmuh-backend 
 
+
+# RUN chmod +x run_scripts.sh
 
